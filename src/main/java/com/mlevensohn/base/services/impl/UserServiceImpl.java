@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
         Set<Role> roleSet = new HashSet<>();
         roleSet.add(role);
 
-        if (nUser.getEmail().split("@")[1].equals("admin.edu")) {
+        if (nUser.getEmail().split("@")[1].equals("admin.com")) {
             role = roleService.findByName(RoleEnum.ADMIN);
             roleSet.add(role);
         }
