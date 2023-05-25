@@ -1,6 +1,6 @@
-package com.mlevensohn.base.controllers.payload.res;
+package com.mlevensohn.base.models;
 
-import com.mlevensohn.base.controllers.dto.UserDto;
+import com.mlevensohn.base.models.UserDto;
 import lombok.*;
 
 @NoArgsConstructor

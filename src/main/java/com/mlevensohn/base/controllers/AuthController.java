@@ -1,9 +1,9 @@
 package com.mlevensohn.base.controllers;
 
-import com.mlevensohn.base.controllers.dto.UserDto;
-import com.mlevensohn.base.controllers.payload.req.LoginRequest;
-import com.mlevensohn.base.controllers.payload.req.RegisterRequest;
-import com.mlevensohn.base.controllers.payload.res.AuthResponse;
+import com.mlevensohn.base.models.UserDto;
+import com.mlevensohn.base.models.LoginRequest;
+import com.mlevensohn.base.models.RegisterRequest;
+import com.mlevensohn.base.models.AuthResponse;
 import com.mlevensohn.base.entities.User;
 import com.mlevensohn.base.mappers.UserMapper;
 import com.mlevensohn.base.security.jwt.JwtUtils;

@@ -1,6 +1,6 @@
 package com.mlevensohn.base.controllers;
 
-import com.mlevensohn.base.controllers.payload.res.MessageResponse;
+import com.mlevensohn.base.models.MessageResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;

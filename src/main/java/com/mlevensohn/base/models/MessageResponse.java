@@ -1,4 +1,4 @@
-package com.mlevensohn.base.controllers.payload.res;
+package com.mlevensohn.base.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

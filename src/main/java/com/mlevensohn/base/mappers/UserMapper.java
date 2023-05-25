@@ -1,7 +1,7 @@
 package com.mlevensohn.base.mappers;
 
-import com.mlevensohn.base.controllers.dto.RoleDto;
-import com.mlevensohn.base.controllers.dto.UserDto;
+import com.mlevensohn.base.models.RoleDto;
+import com.mlevensohn.base.models.UserDto;
 import com.mlevensohn.base.entities.Role;
 import com.mlevensohn.base.entities.User;
 import org.mapstruct.Mapper;

@@ -1,4 +1,4 @@
-package com.mlevensohn.base.controllers.dto;
+package com.mlevensohn.base.models;
 
 import com.mlevensohn.base.utils.RoleEnum;
 import lombok.*;

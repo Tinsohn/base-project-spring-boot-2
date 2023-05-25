@@ -1,7 +1,7 @@
 package com.mlevensohn.base.services;
 
 import com.mlevensohn.base.entities.User;
-import com.mlevensohn.base.controllers.payload.req.RegisterRequest;
+import com.mlevensohn.base.models.RegisterRequest;
 
 import java.util.Optional;
 

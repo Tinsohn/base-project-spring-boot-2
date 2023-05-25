@@ -1,6 +1,6 @@
 package com.mlevensohn.base.controllers.utils;
 
-import com.mlevensohn.base.controllers.payload.res.ValidationErrorResponse;
+import com.mlevensohn.base.models.ValidationErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
