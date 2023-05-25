@@ -1,10 +1,9 @@
 package com.mlevensohn.base.utils;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 
-@AllArgsConstructor
-@Getter
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum RoleEnum {
 
     ADMIN("ADMIN"),
