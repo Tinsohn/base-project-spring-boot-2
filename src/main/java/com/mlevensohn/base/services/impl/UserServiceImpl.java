@@ -4,18 +4,20 @@ import com.mlevensohn.base.entities.Role;
 import com.mlevensohn.base.entities.User;
 import com.mlevensohn.base.exception.EmailAlreadyExistsException;
 import com.mlevensohn.base.exception.UsernameAlreadyExistsException;
-import com.mlevensohn.base.repositories.UserRepository;
-import com.mlevensohn.base.models.RegisterRequest;
 import com.mlevensohn.base.mappers.RequestMapper;
+import com.mlevensohn.base.mappers.UserMapper;
+import com.mlevensohn.base.models.RegisterRequest;
+import com.mlevensohn.base.models.UserDto;
+import com.mlevensohn.base.repositories.UserRepository;
 import com.mlevensohn.base.services.RoleService;
 import com.mlevensohn.base.services.UserService;
 import com.mlevensohn.base.utils.RoleEnum;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 @Slf4j
@@ -33,22 +35,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> findByUsername(String username) {
-        return userRepository.findByUsername(username);
+    public UserDto findByUsername(String username) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("Invalid username or password."));
+        return UserMapper.INSTANCE.entityToDto(user);
     }
 
     @Override
-    public Boolean existsByUsername(String username) {
-        return userRepository.existsByUsername(username);
-    }
-
-    @Override
-    public Boolean existsByEmail(String email) {
-        return userRepository.existsByEmail(email);
-    }
-
-    @Override
-    public User save(RegisterRequest registerRequest) {
+    public UserDto save(RegisterRequest registerRequest) {
         User nUser = RequestMapper.INSTANCE.registerRequestToUser(registerRequest);
 
         if (userRepository.existsByUsername(nUser.getUsername()))
@@ -70,6 +64,8 @@ public class UserServiceImpl implements UserService {
 
         nUser.setRoles(roleSet);
 
-        return userRepository.save(nUser);
+        User user = userRepository.save(nUser);
+
+        return UserMapper.INSTANCE.entityToDto(user);
     }
 }
