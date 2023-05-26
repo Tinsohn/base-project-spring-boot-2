@@ -14,6 +14,7 @@ Proyecto base con una estructura lista para crear proyectos API REST profesional
 * MapStruct
 * Swagger (Springfox)
 * Autenticación con JWT
+* UUID
 * Manejo de roles ("ADMIN" y "USER" como base)
 * Arquitectura en capas
 
