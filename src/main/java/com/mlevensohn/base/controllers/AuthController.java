@@ -6,6 +6,7 @@ import com.mlevensohn.base.models.RegisterRequest;
 import com.mlevensohn.base.models.UserDto;
 import com.mlevensohn.base.security.jwt.JwtUtils;
 import com.mlevensohn.base.services.UserService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -53,7 +54,7 @@ public class AuthController {
         String jwt = jwtUtils.generateToken(authentication);
 
         AuthResponse response = getAuthResponse(userDto, jwt);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     private Authentication authenticate(String username, String password) {
