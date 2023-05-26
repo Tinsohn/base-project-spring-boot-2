@@ -3,6 +3,7 @@ package com.mlevensohn.base.models;
 import lombok.*;
 
 import java.util.Set;
+import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -11,7 +12,7 @@ import java.util.Set;
 @Builder
 public class UserDto {
 
-    private Long userId;
+    private UUID userId;
     private String username;
     private String email;
     private Set<RoleDto> roles;
