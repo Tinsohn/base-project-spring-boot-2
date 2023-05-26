@@ -6,6 +6,8 @@ import com.mlevensohn.base.models.RegisterRequest;
 import com.mlevensohn.base.models.UserDto;
 import com.mlevensohn.base.security.jwt.JwtUtils;
 import com.mlevensohn.base.services.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
+@Api(value = "auth", description = "Operaciones para el login y registración de usuarios")
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -35,6 +38,7 @@ public class AuthController {
         this.jwtUtils = jwtUtils;
     }
 
+    @ApiOperation(value = "Login", notes = "Endpoint para el login de usuarios. En él se obtiene el token de autenticación")
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest loginRequest) {
         Authentication authentication = this.authenticate(loginRequest.getUsername(), loginRequest.getPassword());
@@ -46,6 +50,7 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
 
+    @ApiOperation(value = "Register", notes = "Endpoint para la registración de usuarios. En él se obtiene el token de autenticación")
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> register(@Valid @RequestBody RegisterRequest signUpRequest) {
         UserDto userDto = userService.save(signUpRequest);
